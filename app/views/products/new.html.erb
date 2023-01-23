@@ -1,5 +1,12 @@
-<h1>New Product</h1>
+<nav class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+        <strong>New Product</strong>
+      </p>
+    </div>
+  </div>
+</nav>
 
 <%= render 'form', product: @product %>
-
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', products_path, class: 'button is-danger' %>

@@ -3,11 +3,17 @@
 one:
   title: MyString
   description: This is my description for a products test
-  image_url: MyString
+  image_url: MyString.jpg
   price: 9.99
 
 two:
   title: MyString
   description: This is my description for a products test
-  image_url: MyString
+  image_url: MyString.jpg
   price: 9.99
+
+ruby: 
+  title: Unit testing in Ruby
+  description: this is example product for the unit tess
+  price: 1
+  image_url: ruby.jpg

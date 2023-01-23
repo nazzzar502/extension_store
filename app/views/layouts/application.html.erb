@@ -9,7 +9,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="columns">
+    <div class="column">
+    </div>
+
+    <div class="column is-three-quarters">
+      <%= yield %>
+    </div>
+
+    <div class="column">
+    </div>
   </body>
 </html>

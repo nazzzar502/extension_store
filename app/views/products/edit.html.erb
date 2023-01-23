@@ -1,6 +1,11 @@
-<h1>Editing Product</h1>
-
+<nav class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+        <strong>Editing Product</strong>
+      </p>
+    </div>
+  </div>
+</nav>
 <%= render 'form', product: @product %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', products_path, class: 'button is-danger' %>

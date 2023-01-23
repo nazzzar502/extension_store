@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="columns"> 
+  <div class="column is-one-third">
+    <strong>Title:</strong>
+    <div><%= @product.title %></div>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+  <div class="column is-half">
+    <strong>Description:</strong>
+    <div><%= @product.description %></div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+  <div class="column">
+    <figure class="image is-128x128">
+        <%= image_tag(@product.image_url) %>
+    </figure>
+  </div>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+  <div class="column">
+    <strong>Price:</strong>
+    <div><%= @product.price %></div>
+  </div>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product), class: 'button is-link' %>
+<%= link_to 'Back', products_path, class: 'button is-danger' %>

@@ -1,37 +1,72 @@
-<%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-        <% product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="container"> 
+  <%= form_with(model: product, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :title, class: 'label', placeholder: 'Text input' %>
+      
+      <div class="control">
+        <%= form.text_field :title, class: 'input', placeholder: 'Text input'%>
+      </div>
     </div>
+
+    <%if product.errors.any? %>
+      <div>
+        <% product.errors.full_messages_for(:title).each do |message| %>
+          <li class="tag is-danger" ><%= message %></li>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :description, class: 'label', placeholder: 'Title' %>
+      
+      <div class="control">
+        <%= form.text_area :description, class: 'textarea', placeholder: 'Description'%>
+      </div>
+    </div>
+
+    <%if product.errors.any? %>
+      <div>
+        <% product.errors.full_messages_for(:description).each do |message| %>
+          <li class="tag is-danger" ><%= message %></li>
+        <% end %>
+      </div>
+    <% end %>
+    
+    <div class="field">
+      <%= form.label :price, class: 'label', placeholder: 'Text input' %>
+      
+      <div class="control">
+        <%= form.text_field :price, class: 'input', placeholder: 'Text input'%>
+      </div>
+    </div>
+
+    <%if product.errors.any? %>
+      <div>
+        <% product.errors.full_messages_for(:price).each do |message| %>
+          <li class="tag is-danger" ><%= message %></li>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :image_url, class: 'label', placeholder: 'Text input' %>
+      
+      <div class="control">
+        <%= form.text_field :image_url, class: 'input', placeholder: 'Text input'%>
+      </div>
+    </div>
+
+    <%if product.errors.any? %>
+      <div>
+        <% product.errors.full_messages_for(:image_url).each do |message| %>
+          <li class="tag is-danger" ><%= message %></li>
+        <% end %>
+      </div>
+    <% end %>
+
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="control">
+    <button class="button is-link is-light"> Submit </button>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
