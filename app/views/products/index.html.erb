@@ -20,13 +20,14 @@
         </div>
 
         <div class="column is-four-fifths">
-          <div><%= product.title %></div>
-          <div><%= product.description %></div>
+            <div><%= product.title %></div>
+            <div><%= product.description %></div>
         </div>
 
         <div class="column">
           <%= link_to 'Edit', edit_product_path(product), class: 'button is-link' %>
           <%= link_to 'Show', product, class: 'button is-primary' %> 
+          <%= link_to 'Delete', product_path(product), method: :delete, data: {confirm: "Are you sure?"}, class: 'button is-danger' %>
         </div>
       </div>
     <% end %>

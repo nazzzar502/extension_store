@@ -8,6 +8,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get products_url
     assert_response :success
+    assert_select 'nav.level', count: 1
+    assert_select 'figure.image', minimum: 3
+    assert_select 'div.column', minimum: 6
   end
 
   test "should get new" do
