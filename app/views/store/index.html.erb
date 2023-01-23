@@ -1,0 +1,29 @@
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<nav class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+        <strong>Extension store</strong>
+      </p>
+    </div>
+  </div>
+</nav>
+
+<% @products.each do |product| %>
+  <section class="section">
+    <figure class="image is-128x128">
+      <%= image_tag(product.image_url)%>
+    </figure>
+    <h4 class="title is-4"><%= product.title %></h4>
+    <h4 class="subtitle is-4">
+      <%= sanitize(product.description) %>
+    </h4>
+    <h6 class="subtitle is-6"> 
+      <%= number_to_currency(product.price) %>
+    </h6 class="subtitle is-6">
+  </section>
+  <hr class="has-background-grey-light">
+<% end %>

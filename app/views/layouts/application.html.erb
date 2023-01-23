@@ -8,16 +8,23 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body class="columns">
-    <div class="column">
+  
+  <body>
+    <div>
+      <%= render 'nav_bar' %>
     </div>
 
-    <div class="column is-three-quarters">
-      <%= yield %>
-    </div>
+    <div class="columns">
+      <div class="column">
+        <%= render 'side_bar' %>
+      </div>
 
-    <div class="column">
+      <div class="column is-three-quarters">
+        <%= yield %>
+      </div>
+
+      <div class="column">
+      </div>
     </div>
   </body>
 </html>

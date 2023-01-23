@@ -3,13 +3,13 @@
 one:
   title: MyString
   description: This is my description for a products test
-  image_url: MyString.jpg
+  image_url: ruby.jpg
   price: 9.99
 
 two:
   title: MyString
   description: This is my description for a products test
-  image_url: MyString.jpg
+  image_url: ruby.jpg
   price: 9.99
 
 ruby: 
