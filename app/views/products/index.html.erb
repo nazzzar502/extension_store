@@ -4,6 +4,7 @@
     <div class="level-item">
       <p class="subtitle is-5">
         <strong>Products</strong>
+        <%= link_to 'New Product', new_product_path, class: 'button' %>
       </p>
     </div>
   </div>
@@ -12,28 +13,35 @@
 <% cache @products do %> 
   <% @products.each do |product| %>
     <% cache product do %> 
-      <div class="columns"> 
-        <div class="column">
-          <figure class="image is-128x128">
-              <%= image_tag(product.image_url) %>
+      <section class="section-medium">
+        <div class="content-body">
+          <figure class="image is-64x64">
+            <%= image_tag(product.image_url)%>
           </figure>
+
+          <h4 class="title is-4"><%= product.title %></h4>
+          
+          <h4 class="subtitle is-4">
+            <%= sanitize(product.description) %>
+          </h4>
+
+          <h6 class="subtitle is-6 price"> 
+            <%= number_to_currency(product.price)%>
+          </h6 class="subtitle is-6">
         </div>
 
-        <div class="column is-four-fifths">
-            <div><%= product.title %></div>
-            <div><%= product.description %></div>
-        </div>
+        <br>
 
-        <div class="column">
-          <%= link_to 'Edit', edit_product_path(product), class: 'button is-link' %>
-          <%= link_to 'Show', product, class: 'button is-primary' %> 
-          <%= link_to 'Delete', product_path(product), method: :delete, data: {confirm: "Are you sure?"}, class: 'button is-danger' %>
+        <div class="content-controls">
+            <%= link_to 'Edit', edit_product_path(product), class: 'button is-link' %>
+            <%= link_to 'Show', product, class: 'button is-primary' %> 
+            <%= link_to 'Delete', product_path(product), method: :delete, data: {confirm: "Are you sure?"}, class: 'button is-danger' %>
         </div>
-      </div>
+      </section>
+
+      <hr class="has-background-grey-light">
     <% end %>
   <% end %>
 <% end %>
 
 <br>
-
-<%= link_to 'New Product', new_product_path, class: 'button is-primary' %>
