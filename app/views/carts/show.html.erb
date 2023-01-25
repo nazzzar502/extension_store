@@ -1,9 +1,17 @@
 <% if notice %>
-  <aside id="notice"><%= notice %></aside>
+  <div class="notification">
+      <%= notice %>
+  </div>
 <% end %>
+
 <h2>Your Pragmatic Cart</h2>
 <ul>
   <% @cart.line_items.each do |item| %>
-    <li><%= item.product.title %></li>
+    <ul>
+      <!--%= debug item %-->
+      <li><%= item.product.title %></li>
+      <li><%= item.quantity %></li>
+    </ul>
   <% end %>
+  <%= button_to "Emty Cart", @cart, method: :delete, data:{ onfirm: "Are you sure about that?"} %>
 </ul>

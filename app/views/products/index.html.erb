@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="notification">
+      <%= notice %>
+  </div>
+<% end %>
+
 <nav class="level">
   <div class="level-left">
     <div class="level-item">

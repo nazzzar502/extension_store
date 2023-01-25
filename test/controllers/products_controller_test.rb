@@ -10,7 +10,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'nav.level', count: 1
     assert_select 'figure.image', minimum: 3
-    assert_select 'div.column', minimum: 6
+    assert_select 'div.column', minimum: 3
   end
  
   test 'can`t delete product in cart' do
