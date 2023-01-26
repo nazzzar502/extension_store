@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
 
   # GET /products or /products.json
   def index
@@ -55,6 +56,11 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def invalid_product 
+    logger.error "Attempt to access invalid product #{params[:id]}"
+    redirect_to  store_index_url, notice: 'Invalid product'
   end
 
   private
