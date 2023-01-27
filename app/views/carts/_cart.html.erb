@@ -1,0 +1,23 @@
+<span>
+  <!--div> 
+    <% if notice %>
+      <div-- class="notification">
+          <%= notice %>
+      </div>
+    <% end %>
+  </div-->
+
+  <h2>Your Cart</h2>
+
+  <% if @cart %>
+    <% unless @cart.line_items.empty? %>
+      <%= link_to "Empty Cart", @cart, method: :delete, data:{ onfirm: "Are you sure about that?"}, reamote: true, class: 'button' %>
+    <% end %>
+
+    <%= render (@cart.line_items) %>
+  <% end %>
+
+  <!--div class="content-controls">
+    <%= link_to 'Back', store_index_path, class: 'button is-primary' %>
+  </div-->
+</span>

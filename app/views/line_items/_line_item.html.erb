@@ -1,0 +1,29 @@
+
+<hr>
+
+<% if (line_item == @current_item) && (line_item.quantity <= 1) %>
+  <div class="line-item-fade-in">
+<% else %>
+  <div>
+<% end %>
+  <article class="media">
+    <figure class="media-left">
+      <figure class="image is-64x64">
+          <%= image_tag(line_item.product.image_url) %>
+      </figure>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= line_item.product.title %></strong>
+        </p>
+        <p><strong>Count: </strong> <%= line_item.quantity %></p>
+        <p><strong>Price: </strong> <%= number_to_currency(line_item.price * line_item.quantity) %></p>
+      </div>
+      
+    </div>
+    <div class="media-right">
+      <%=link_to '', line_item, method: :delete, remote: true, class: "delete"%>
+    </div>
+  </article>
+</div>

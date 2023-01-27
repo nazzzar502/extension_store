@@ -9,6 +9,12 @@
   <p class="menu-label">
     Sign in
   </p>
+  <hr>
+  
+  <div id="cart">
+    <%= render_if @cart && @cart.line_items.any?, @cart %>
+  </div>
+  
   <!--ul class="menu-list">
     <li><a>Team Settings</a></li>
     <li>
