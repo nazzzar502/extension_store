@@ -15,6 +15,8 @@
     <% end %>
 
     <%= render (@cart.line_items) %>
+
+    <%= button_to 'Checkout', new_order_path, method: :get, class: 'button' %>
   <% end %>
 
   <!--div class="content-controls">
