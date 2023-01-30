@@ -39,3 +39,9 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+sqlite-tools-win32-x86-3400100/Rails_learningextension_storedbdevelopment.sqlite3
+sqlite-tools-win32-x86-3400100/sqlite3.exe
+sqlite-tools-win32-x86-3400100/sqlite3_analyzer.exe
+sqlite-tools-win32-x86-3400100/sqldiff.exe
+sqlite-tools-win32-x86-3400100.zip
+db/sqlite3.exe
