@@ -57,7 +57,10 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1 or /line_items/1.json
   def destroy
-    cart = @line_item.cart
+    if @line_item.cart
+      cart = @line_item.cart
+    end
+
     product = @line_item.product
 
     #@cart.remove_product(product)

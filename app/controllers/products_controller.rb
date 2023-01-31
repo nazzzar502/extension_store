@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  include CurrentCart  
+  before_action :set_product, only: %i[show edit update destroy]
   before_action :set_cart, only: %i[create destory]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
 
@@ -66,6 +67,12 @@ class ProductsController < ApplicationController
   def invalid_product 
     logger.error "Attempt to access invalid product #{params[:id]}"
     redirect_to  store_index_url, notice: 'Invalid product'
+  end
+
+  def transfer_order_info 
+    @product = Product.find(params[:id])
+    @latest_order = @product.orders.order(:updated_at).last
+    render json: @latest_order
   end
 
   private
