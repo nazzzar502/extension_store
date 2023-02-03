@@ -5,7 +5,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { PayType } from './pay_type'
+import { createRoot } from 'react-dom/client';
 
+
+//Hello Components
 const Hello = props => (
   <div>Hello {props.name}!</div>
 )

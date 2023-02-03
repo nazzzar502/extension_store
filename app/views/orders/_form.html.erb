@@ -64,7 +64,8 @@
           <%= form.label :pay_type, class: 'label', placeholder: 'Text input' %>
           
           <div class="control select">
-            <%= form.select :pay_type, Order.pay_types.keys, prompt: 'Select a payment method' %>
+            <div id='pay-type-component'></div>
+            <!--%= form.select :pay_type, Order.pay_types.keys, prompt: 'Select a payment method' %-->
           </div>
         </div>
 
