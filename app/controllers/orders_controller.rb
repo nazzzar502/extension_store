@@ -32,7 +32,8 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        @order.charge!(pay_type_params)        
+        # @order.charge!(pay_type_params)
+        ChargeOrderJob.perform_later(@order,pay_type_params.to_h) # We are transfering job from controller to ActiveJob class
         format.html { redirect_to order_url(@order), notice: "Thank you for your order" }
         format.json { render :show, status: :created, location: @order }
       else
