@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const CheckPayType = (props) => {
   return (
     <div className="field columns">
-      <div className="column">
+      <div className="field column">
         <label className="label" htmlFor="order_routing_number">Routing #</label>
         <div className="control">
           <input
@@ -15,7 +15,7 @@ const CheckPayType = (props) => {
           />
         </div>
       </div>
-      <div className="column">
+      <div className="field column">
         <label className="label" htmlFor="order_account_number">Account #</label>
         <div className="control">
           <input
