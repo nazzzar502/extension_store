@@ -1,0 +1,8 @@
+<div> 
+  <h2>Welcome <%= @user.name %></h2>
+
+  <div> 
+    <p> It's <%= Time.now %>
+    <p> We have <%= pluralize(@total_orders, "order") %>
+  </div>
+</div>

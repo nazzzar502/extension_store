@@ -1,19 +1,32 @@
 <aside class="menu">
-  <p class="menu-label">
-    Products
-  </p>
-  <ul class="menu-list">
-    <li> <%= link_to 'New', new_product_path %> </li>
-    <li><a>Edit</a></li>
-  </ul>
-  <p class="menu-label">
-    Sign in
-  </p>
-  <hr>
-  
-  <div id="cart">
-    <%= render_if @cart && @cart.line_items.any?, @cart %>
-  </div>
+  <% unless session[:user_id] %>
+    <p class="menu-label">
+      Sign in
+    </p>
+    <ul class="menu-list">
+      <li> <%= link_to 'Sign In', new_user_path %> </li>
+    </ul>
+    <ul class="menu-list">
+      <li> <%= link_to 'Log In', login_path %> </li>
+    </ul>
+  <% end %>
+
+  <% if session[:user_id] %>
+    <p class="menu-label">
+      Products
+    </p>
+    <ul class="menu-list">
+      <li> <%= link_to 'New Product', new_product_path %> </li>
+    </ul>
+    <ul class="menu-list">
+      <li><%= link_to 'Users', users_path %></li>
+    </ul>
+    <hr>
+
+    <div id="cart">
+      <%= render_if @cart && @cart.line_items.any?, @cart %>
+    </div>
+  <% end %>
   
   <!--ul class="menu-list">
     <li><a>Team Settings</a></li>

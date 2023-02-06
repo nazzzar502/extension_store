@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_cart, only: [ :new, :create ]
   before_action :set_order, only: %i[ show edit update destroy ]
   before_action :ensure_cart_isnt_empty, only: :new
+  skip_before_action :authorize, only: [:new, :create]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
 
   # GET /orders or /orders.json

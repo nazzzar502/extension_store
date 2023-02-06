@@ -2,6 +2,7 @@ class StoreController < ApplicationController
   include CountCart
   include CurrentCart
   before_action :set_cart
+  skip_before_action :authorize
   
   before_action :get_counter, only: [:index]
 
