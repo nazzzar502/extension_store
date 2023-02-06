@@ -1,33 +1,35 @@
-<% if notice %>
-  <div class="notification">
-      <%= notice %>
-  </div>
-<% end %>
-
-<nav class="level">
-  <div class="level-left">
-    <div class="level-item">
-      <p class="subtitle is-5">
-        <strong>Extension store</strong>
-          <strong><%= @user_interactions %></strong>
-      </p>
+<div class="column is-three-fifths">
+  <% if notice %>
+    <div class="notification">
+        <%= notice %>
     </div>
-  </div>
-</nav>
+  <% end %>
 
-<% @products.each do |product| %>
-  <section class="section-medium">
-    <figure class="image is-64x64">
-      <%= link_to image_tag(product.image_url), line_items_path(product_id: product), method: :post, remote: true %>
-    </figure>
-    <h4 class="title is-4"><%= product.title %></h4>
-    <h4 class="subtitle is-4">
-      <%= sanitize(product.description) %>
-    </h4>
-    <h6 class="subtitle is-6 price"> 
-      <%= number_to_currency(product.price)%>
-    </h6 class="subtitle is-6">
-  </section>
-  <%= button_to 'Add to cart', line_items_path(product_id: product), remote: true, class: 'button is-dark' %>
-  <hr class="has-background-grey-light">
-<% end %>
+  <nav class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="subtitle is-5">
+          <strong>Extension store</strong>
+            <strong><%= @user_interactions %></strong>
+        </p>
+      </div>
+    </div>
+  </nav>
+
+  <% @products.each do |product| %>
+    <section class="section-medium">
+      <figure class="image is-64x64">
+        <%= link_to image_tag(product.image_url), line_items_path(product_id: product), method: :post, remote: true %>
+      </figure>
+      <h4 class="title is-4"><%= product.title %></h4>
+      <h4 class="subtitle is-4">
+        <%= sanitize(product.description) %>
+      </h4>
+      <h6 class="subtitle is-6 price"> 
+        <%= number_to_currency(product.price)%>
+      </h6 class="subtitle is-6">
+    </section>
+    <%= button_to 'Add to cart', line_items_path(product_id: product), remote: true, class: 'button is-dark' %>
+    <hr class="has-background-grey-light">
+  <% end %>
+</div>

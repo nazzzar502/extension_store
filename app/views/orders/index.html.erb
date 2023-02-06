@@ -1,56 +1,58 @@
-<% if notice %>
-  <div class="notification">
-      <%= notice %>
-  </div>
-<% end %>
-
-<nav class="level">
-  <div class="level-left">
-    <div class="level-item">
-      <p class="subtitle is-5">
-        <strong>Orders</strong>
-      </p>
+<div class="column is-three-fifths">
+  <% if notice %>
+    <div class="notification">
+        <%= notice %>
     </div>
-  </div>
-</nav>
+  <% end %>
 
-<% cache @orders do %> 
-  <% @orders.each do |order| %>
-    <% cache order do %> 
-      <section class="section-medium">
-        <div class="content-body">
-          <strong>Order name: </strong>
-          <p class="subtitle is-5 has-text-link"><%= order.name %></p>
-          
-          <strong>Order address: </strong>
-          <p class="subtitle is-6 has-text-link">
-            <%= sanitize(order.address) %>
-          </p>
+  <nav class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="subtitle is-5">
+          <strong>Orders</strong>
+        </p>
+      </div>
+    </div>
+  </nav>
 
-          <strong>Order email: </strong>
-          <p class="subtitle is-6 has-text-link">
-            <%= sanitize(order.email) %>
-          </p>
+  <% cache @orders do %> 
+    <% @orders.each do |order| %>
+      <% cache order do %> 
+        <section class="section-medium">
+          <div class="content-body">
+            <strong>Order name: </strong>
+            <p class="subtitle is-5 has-text-link"><%= order.name %></p>
+            
+            <strong>Order address: </strong>
+            <p class="subtitle is-6 has-text-link">
+              <%= sanitize(order.address) %>
+            </p>
 
-          <strong>Order payment tipe: </strong>
-          <p class="subtitle is-6 has-text-link">
-            <%= sanitize(order.pay_type) %>
-          </p>
-        </div>
+            <strong>Order email: </strong>
+            <p class="subtitle is-6 has-text-link">
+              <%= sanitize(order.email) %>
+            </p>
 
-        <br>
+            <strong>Order payment tipe: </strong>
+            <p class="subtitle is-6 has-text-link">
+              <%= sanitize(order.pay_type) %>
+            </p>
+          </div>
 
-        <div class="content-controls">
-            <%= link_to 'Edit', edit_order_path(order), class: 'button is-link' %>
-            <%= link_to 'Show', order, class: 'button is-primary' %> 
-            <%= link_to 'Delete', order_path(order), method: :delete, data: {confirm: "Are you sure?"}, class: 'button is-danger' %>
-        </div>
-      </section>
+          <br>
 
-      <hr class="has-background-grey-light">
+          <div class="content-controls">
+              <%= link_to 'Edit', edit_order_path(order), class: 'button is-link' %>
+              <%= link_to 'Show', order, class: 'button is-primary' %> 
+              <%= link_to 'Delete', order_path(order), method: :delete, data: {confirm: "Are you sure?"}, class: 'button is-danger' %>
+          </div>
+        </section>
+
+        <hr class="has-background-grey-light">
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<br>
+  <br>
+</div>
 
