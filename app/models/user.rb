@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   after_destroy :ensure_an_admin_remains
+  has_many :comments, dependent: :destroy
+  
 
   validates :name, presence: true, uniqueness: true
   
