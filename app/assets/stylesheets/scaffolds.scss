@@ -37,13 +37,13 @@ div.actions {
   color: green; }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table; }
+  background-color: #f14668;
+}
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #f14668;
+  border-radius: 6px;
   padding: 7px 7px 0;
   margin-bottom: 20px;
   background-color: #f0f0f0; }
@@ -54,7 +54,7 @@ div.actions {
   padding: 5px 5px 5px 15px;
   font-size: 12px;
   margin: -7px -7px 0;
-  background-color: #c00;
+  background-color: #f14668;
   color: #fff; }
 
 #error_explanation ul li {

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  include CurrentCart  
+  include CurrentCart
+  include SetComment
   before_action :set_product, only: %i[show edit update destroy]
   before_action :set_cart, only: %i[create destory]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
@@ -11,6 +12,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @comment = Comment.new
+    @comments = Comment.find_by(product_id: @product.id)
+    session[:product_id] = @product.id
   end
 
   # GET /products/new
