@@ -1,15 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Label:</strong>
-  <%= @comment.label %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
-</p>
-
 <div class="card">
     <div class="card-content">
       <div class="media">
@@ -34,5 +24,7 @@
     </div>
   </div>
 
+<%= link_to 'Go to product', @comment.product %> |
+<%= link_to 'Go to user', @comment.user %> |
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>
