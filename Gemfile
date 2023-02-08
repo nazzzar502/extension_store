@@ -26,6 +26,8 @@ gem 'psych', '< 4'
 
 gem "bulma-rails", "~> 0.9.4"
 
+gem 'material_icons'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
